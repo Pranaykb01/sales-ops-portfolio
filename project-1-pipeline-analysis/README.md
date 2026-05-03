@@ -37,7 +37,7 @@ Wrote a one-page business summary covering the key findings, prioritised recomme
 
 ## Key Findings
 - 37% of the original CRM data had quality issues before any analysis could run
-- EMEA deals take an average of 217 days to close versus 117 days for UK deals , an 85% difference that makes regional forecasting unreliable if treated equally
+- EMEA deals take an average of 217 days to close versus 117 days for UK deals, an 85% difference that makes regional forecasting unreliable if treated equally
 - Analytics Suite has a Discovery stage bottleneck, 184 days average cycle versus 154 days for the fastest product
 - Win rates range from 11% to 40% across the 15-rep team, a gap not explained by territory or deal mix alone
 - £121,069 in contracted revenue was invoiced below the agreed deal value across 19 closed won deals
@@ -83,7 +83,44 @@ Google Sheets - Live data source for the Make.com automation
 - Revenue Leakage = SUMX across filtered won deals comparing deal value to invoiced value
 - Total Won Value = CALCULATE with SUM filtered to Won_Flag = Yes
 
+## Make.com Automation — How It Works
+
+**What it does**
+This automation monitors a Google Sheet that acts as a live sales pipeline. Every time it runs, it searches for any deal where the Days_Since_Last_Activity column shows a value greater than 14. For every deal that meets that condition, it automatically sends a formatted email alert to the assigned rep containing the full deal context — company name, pipeline stage, deal value, region, and how many days it has been inactive — along with a clear call to action.
+
+Without this automation, a Sales Ops Analyst would need to manually check every open deal in the pipeline each day to identify which ones have gone cold. At 458 deals that would take 2 to 3 hours per week. The automation does it in seconds.
+
+**View the live scenario**
+You can view the automation blueprint here:
+[View Make.com Scenario](https://us2.make.com/public/shared-scenario/32zkznbEZbG/integration-google-sheets-gmail)
+
+**How to use it yourself**
+If you want to run this automation with your own data, follow these steps:
+
+1. Click the scenario link above
+2. Click **Save a copy** to add it to your own Make.com account — you will need a free Make.com account to do this
+3. Open the **Google Sheets** module and reconnect it to your own Google account
+4. Point it at your own Google Sheet — the sheet needs a column called **Days_Since_Last_Activity** containing numbers
+5. Set the filter condition to **Days_Since_Last_Activity — Greater than — 14** or change 14 to whatever threshold suits your team
+6. Open the **Gmail** module and reconnect it to your own Gmail account
+7. Update the **To** field with your own email address for testing
+8. Click **Run once** to test — check your inbox for the alert email
+9. Once confirmed working, set the schedule to run daily at 8am
+
+**How to change the email recipient**
+By default the automation sends to a test email address. To send to the actual rep assigned to each deal, the Rep_Name or Rep_Email field from your Google Sheet needs to be mapped to the To field in the Gmail module. If your sheet has a Rep_Email column, drag that field into the To field inside the Gmail module settings.
+
+**Blueprint file**
+The full automation blueprint is included in this repository as a JSON file. You can import it directly into Make.com by going to your Make.com dashboard, clicking Create a new scenario, and selecting Import Blueprint.
+
+## Dashboard Preview
+![Dashboard](screenshots/powerbi-dashboard.png)
+
+## Automation Preview
+![Make.com Workflow](screenshots/make-workflow.png)
+![Stale Deal Alert Email](screenshots/stale-deal-email.png)
+
 ## Author
 Pranay Kumar Bhensle
-[LinkedIn](www.linkedin.com/in/pranay-kumar-bhensle)
+[LinkedIn](https://www.linkedin.com/in/pranay-kumar-bhensle)
 Birmingham, UK
