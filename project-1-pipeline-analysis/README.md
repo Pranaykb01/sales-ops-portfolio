@@ -1,6 +1,6 @@
 # Sales Performance & Pipeline Analysis
 
-## About This Project
+## Overview
 I built this project to demonstrate a full Sales Operations workflow, from a raw, messy CRM export through to a cleaned dataset, a multi-page Power BI dashboard, and a live Make.com automation. The dataset is a synthetic UK B2B sales pipeline with 650 opportunities, and the goal was to answer the questions a sales leader would actually bring to a Monday morning pipeline review: Where are deals getting stuck? Which reps need support? Where is revenue being lost between close and invoice?
 
 ## Dataset
